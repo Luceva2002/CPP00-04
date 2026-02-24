@@ -1,18 +1,27 @@
-NAME		= zombie_horde
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/02/18 13:28:22 by luevange          #+#    #+#              #
+#    Updated: 2026/02/18 16:54:57 by luevange         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		= phonebook
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp \
-			  Zombie.cpp \
-			  zombieHorde.cpp
-
+SRCS		= main.cpp Contact.cpp PhoneBook.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -26,4 +35,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

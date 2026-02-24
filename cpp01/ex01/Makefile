@@ -5,23 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/02/18 13:28:22 by luevange          #+#    #+#              #
-#    Updated: 2026/02/18 16:54:44 by luevange         ###   ########.fr        #
+#    Created: 2026/02/18 13:43:16 by luevange          #+#    #+#              #
+#    Updated: 2026/02/18 13:43:16 by luevange         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= account
+NAME		= zombie_horde
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= Account.cpp tests.cpp
+SRCS		= main.cpp \
+			  Zombie.cpp \
+			  zombieHorde.cpp
+
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -35,3 +38,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
